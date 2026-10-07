@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Email confirmado · Vali</title>
+  <meta name="description" content="Confirmación de la cuenta de Vali.">
+  <meta name="robots" content="noindex, noarchive">
+  <link rel="icon" href="icon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="index.html"><img src="icon.png" alt="" width="32" height="32"><span>Vali</span></a>
+      <nav aria-label="Secciones">
+        <a href="index.html">Inicio</a>
+        <a href="condiciones.html">Condiciones</a>
+        <a href="privacidad.html">Privacidad</a>
+        <a href="normas.html">Normas</a>
+        <a href="aviso-legal.html">Aviso legal</a>
+        <a href="borrar-cuenta.html">Eliminar cuenta</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    
+<section class="doc">
+  <div id="ok">
+    <h1>Email confirmado</h1>
+    <p>Ya puedes volver a <strong>Vali</strong> y entrar con tu email y tu contraseña.</p>
+  </div>
+  <div id="error" hidden>
+    <h1>El enlace no ha funcionado</h1>
+    <p>Puede que haya caducado o que ya lo hubieras usado. Prueba a entrar en <strong>Vali</strong> con tu email y tu contraseña; si te dice que falta confirmar el email, regístrate otra vez para recibir un enlace nuevo.</p>
+  </div>
+  <p>¿Algún problema? Escríbenos a <a href="mailto:gabriw23@gmail.com">gabriw23@gmail.com</a>.</p>
+</section>
+<script>
+  (function () {
+    var params = new URLSearchParams((location.hash || "").replace(/^#/, "") + "&" + location.search.replace(/^\?/, ""));
+    if (params.get("error") || params.get("error_code")) {
+      document.getElementById("ok").hidden = true;
+      document.getElementById("error").hidden = false;
+      document.title = "El enlace no ha funcionado · Vali";
+    }
+    if (location.hash || location.search) history.replaceState(null, "", location.pathname);
+  })();
+</script>
+
+  </main>
+  <footer class="wrap foot">
+    <p>Vali · <a href="mailto:gabriw23@gmail.com">gabriw23@gmail.com</a> · <a href="aviso-legal.html">Aviso legal</a> · Textos versión 2026-10-06.4</p>
+  </footer>
+</body>
+</html>
